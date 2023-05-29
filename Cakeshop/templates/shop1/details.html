@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Customer Orders Details Page</title>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <table class="table bg-light">
+            <thead class="bg-secondary">
+                <tr>
+                    <th>Cake type</th>
+                    <th>Shape</th>
+                    <th>Icing</th>
+                    <th>Flavor</th>
+                    <th>Allergy</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Contact</th>
+                    <th>Date Required</th>
+                    <th>Time Required</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for obj in data %}
+                <tr>
+                    <td>{{obj.choose_cake}}</td>
+                    <td>{{obj.shape}}</td>
+                    <td>{{obj.choose_icing}}</td>
+                    <td>{{obj.choose_flavors}}</td>
+                    <td>{{obj.any_allergies}}</td>
+                    <td>{{obj.first_name}}</td>
+                    <td>{{obj.last_name}}</td>
+                    <td>{{obj.email}}</td>
+                    <td>{{obj.address}}</td>
+                    <td>{{obj.city}}</td>
+                    <td>{{obj.number}}</td>
+                    <td>{{obj.date_required}}</td>
+                    <td>{{obj.time_required}}</td>
+                    <td>
+                        <a href="{% url 'update' obj.id %}"><button class="btn btn-outline-info">UPDATE</button></a>
+                        <a href="{% url 'delete' obj.id %}"><button class="btn btn-outline-warning">DELETE</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}

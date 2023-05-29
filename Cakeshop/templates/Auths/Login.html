@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Login Page</title>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron conatainer">
+    <form method="post">
+        {% csrf_token %}
+        <label for="user"><b>ENTER USERNAME: </b></label>
+        <input type="text" id="us" name="user" class="form-control">
+        
+        <br>
+        <br>
+
+        <label for="pass">ENTER PASSWORD: </label>
+        <input type="password" id="pw" name="pass" class="form-control">
+
+        <br>
+        <br>
+
+        <input type="submit" value="LOGIN" class="btn btn-outline-success col-6">
+    </form>
+</div>
+{% endblock %}
